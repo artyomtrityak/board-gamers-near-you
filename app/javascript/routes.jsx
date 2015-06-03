@@ -1,9 +1,11 @@
 import React from 'react';
 import Router, {Route, DefaultRoute, NotFoundRoute} from 'react-router';
 
-import {AppComponent, MapComponent, LandingComponent, NotFoundComponent} from './modules/map';
+import AppComponent from './components/app.component';
+import MapComponent from './components/map.component';
+import LandingComponent from './components/landing.component';
+import NotFoundComponent from './components/not-found.component';
 
-//NB: get Routes from modules and pass as {ModuleARoutes}
 var routes = (
   <Route handler={AppComponent} name="root" path="/">
     <Route handler={MapComponent} name="map" />
