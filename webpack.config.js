@@ -11,9 +11,9 @@ var VENDOR_LIBS = [
     'eventemitter2',
     'classnames',
     'leaflet',
-    'parse'/*,
-    'react-intl'*/
+    'parse'
 ];
+var embedFileSize = 65536;
 
 module.exports = {
     entry: {
@@ -30,6 +30,14 @@ module.exports = {
         modulesDirectories: ['node_modules'],
     },
     module: {
+        preLoaders: [
+          {
+            test: /\.jsx$/,
+            loaders: ['eslint'],
+            include: [new RegExp(path.join(__dirname, 'app'))],
+            exclude: /node_modules/
+          }
+        ],
         loaders: [
             {
                 test: /\.jsx?$/,
@@ -42,8 +50,16 @@ module.exports = {
                     'file?hash=sha512&digest=hex&name=[hash].[ext]',
                     'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
                 ]
+            },
+            {
+                test: /\.(otf|eot|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: 'url?limit=' + embedFileSize
             }
         ]
+    },
+    eslint: {
+        configFile: '.eslintrc',
+        emitError: true
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin(
