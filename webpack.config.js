@@ -23,7 +23,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/app/build'),
         filename: "bundle.js",
-        publicPath: 'http://localhost:8899/app/build/',
+        publicPath: 'http://localhost:8080/app/build/',
     },
     resolve: {
         extensions: ['', '.js', '.jsx', '.json'],
@@ -35,6 +35,13 @@ module.exports = {
                 test: /\.jsx?$/,
                 loaders: ['babel'],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loaders: [
+                    'file?hash=sha512&digest=hex&name=[hash].[ext]',
+                    'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+                ]
             }
         ]
     },
