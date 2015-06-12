@@ -1,8 +1,23 @@
 import React from 'react';
-import url from './images/mansions.jpg';
+import MenuComponent from './menu.component';
+import MapComponent from './map/map.component';
+import { RouteHandler } from 'react-router';
 
 export default React.createClass({
   render: function() {
-    return <div>123 <img src={url} /> </div>;
+    return (
+      <div>
+        <MenuComponent />
+
+        <div className='gray-bg' id='page-wrapper'>
+          <MapComponent />
+        </div>
+
+        <div id='modal-container'>
+          <RouteHandler />
+        </div>
+
+      </div>
+    );
   }
 });
