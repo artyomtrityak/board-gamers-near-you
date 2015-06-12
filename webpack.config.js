@@ -26,6 +26,7 @@ module.exports = {
         publicPath: 'http://localhost:8080/app/build/',
     },
     resolve: {
+        root: path.resolve('./app/javascript'),
         extensions: ['', '.js', '.jsx', '.json'],
         modulesDirectories: ['node_modules'],
     },

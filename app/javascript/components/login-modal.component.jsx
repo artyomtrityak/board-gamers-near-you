@@ -2,10 +2,6 @@ import React from 'react';
 
 export default React.createClass({
   render: function() {
-    return (
-      <div>
-        Not found
-      </div>
-    );
+    return <div> Modal login </div>;
   }
 });

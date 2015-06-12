@@ -1,10 +1,11 @@
 import React from 'react';
-import Router, {Route, DefaultRoute, NotFoundRoute} from 'react-router';
+import Router, {Route, NotFoundRoute} from 'react-router';
 
 import RootComponent from './components/root.component';
 import AppComponent from './components/app.component';
 import LandingComponent from './components/landing.component';
 import NotFoundComponent from './components/not-found.component';
+import LoginModalComponent from './components/login-modal.component';
 
 var routes = (
   <Route handler={RootComponent} name='root' path='/'>
@@ -13,7 +14,9 @@ var routes = (
       <Route handler={NotFoundComponent} name='notifications' />
     </Route>
 
-    <DefaultRoute handler={LandingComponent} name='landing' />
+    <Route handler={LandingComponent} name='landing' path="/">
+      <Route handler={LoginModalComponent} name='login' />
+    </Route>
     <NotFoundRoute handler={NotFoundComponent} />
   </Route>
 );

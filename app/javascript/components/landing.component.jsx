@@ -1,8 +1,11 @@
 import React from 'react';
+import { RouteHandler } from 'react-router';
 
-//Images
-var headerImg = require('image!./images/header_one.jpg'),
-    laptopImg = require('image!./images/laptop.png');
+//import AppActions from 'actions/app.actions';
+
+import headerImg from './images/header_one.jpg';
+import laptopImg from './images/laptop.png';
+
 
 export default React.createClass({
   render: function() {
@@ -24,9 +27,12 @@ export default React.createClass({
                         <img src={laptopImg} alt="laptop" />
                     </div>
                 </div>
-                <div className="header-back" style={{background: 'url(' + headerImg + ') 50% 0 no-repeat'}}></div>
+                <div className="header-back"
+                  style={{background: 'url(' + headerImg + ') 50% 0 no-repeat'}}>
+                </div>
             </div>
         </div>
+
         <section className="container features">
           <div className="row">
               <div className="col-lg-12 text-center">
@@ -72,6 +78,10 @@ export default React.createClass({
               </div>
           </div>
       </section>
+
+      <div id='modal-container'>
+        <RouteHandler />
+      </div>
 
     </div>
     );
