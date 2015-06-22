@@ -2,20 +2,28 @@ import React from 'react';
 import { RouteHandler } from 'react-router';
 
 import AppActions from 'actions/app.actions';
+import AppStore from 'stores/app.store';
+import Loader from 'components/shared/loader';
 
 export default React.createClass({
-  componentDidMount() {
-    console.log('DID MOUNT');
-    //TODO: show loader
+  getInitialState() {
+    return {};
+  },
 
+  componentDidMount() {
     window.fbAsyncInit = this.initializeFb;
 
     this.loadFBSdk();
+
+    AppStore.on('change', this.handleChange);
+  },
+
+  handleChange(appState) {
+    this.setState(appState);
   },
 
   initializeFb() {
     AppActions.initialize();
-    //TODO: hide loader
   },
 
   loadFBSdk() {
@@ -29,6 +37,11 @@ export default React.createClass({
   render() {
     return (
       <div id='wrapper'>
+        1213
+        <div ref='loader'>
+          <Loader loading={true} />
+        </div>
+
         <RouteHandler />
       </div>
     );

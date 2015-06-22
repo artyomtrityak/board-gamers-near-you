@@ -12,7 +12,8 @@ var VENDOR_LIBS = [
     'classnames',
     'leaflet',
     'parse',
-    'react-pure'
+    'react-pure',
+    'spin.js'
 ];
 var embedFileSize = 65536;
 
