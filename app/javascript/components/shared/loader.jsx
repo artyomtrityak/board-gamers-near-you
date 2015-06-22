@@ -2,6 +2,7 @@ import React from 'react';
 import Spinner from 'spin.js';
 
 export default React.createClass({
+  displayName: 'Loader',
   propTypes: {
     loading: React.PropTypes.bool.required
   },

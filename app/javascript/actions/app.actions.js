@@ -17,6 +17,8 @@ var AppActions = {
       xfbml: true,  // initialize Facebook social plugins on the page
       version: 'v2.3' // point to the latest Facebook Graph API version
     });
+
+    AppDispatcher.dispatch({action: 'FACEBOOK:LOADED'});
   },
 
   isLoggenIn() {

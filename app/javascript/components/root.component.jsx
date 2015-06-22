@@ -6,8 +6,10 @@ import AppStore from 'stores/app.store';
 import Loader from 'components/shared/loader';
 
 export default React.createClass({
+  displayName: 'RootComponent',
+
   getInitialState() {
-    return {};
+    return AppStore.getState().toObject();
   },
 
   componentDidMount() {
@@ -18,8 +20,9 @@ export default React.createClass({
     AppStore.on('change', this.handleChange);
   },
 
-  handleChange(appState) {
-    this.setState(appState);
+  handleChange() {
+    //TODO: .toObject tmp till 0.13.4 will be out
+    this.setState(AppStore.getState().toObject());
   },
 
   initializeFb() {
@@ -35,11 +38,12 @@ export default React.createClass({
   },
 
   render() {
+    console.log(this.state);
     return (
       <div id='wrapper'>
         1213
         <div ref='loader'>
-          <Loader loading={true} />
+          <Loader loading={this.state.loading} />
         </div>
 
         <RouteHandler />
