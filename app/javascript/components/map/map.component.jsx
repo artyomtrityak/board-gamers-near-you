@@ -24,7 +24,7 @@ export default React.createClass({
 
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <MapFilters />

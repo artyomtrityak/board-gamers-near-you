@@ -7,7 +7,7 @@ import MapComponent from './map/map.component';
 
 export default React.createClass({
   statics: {
-    willTransitionTo: function (transition, params, query, callback) {
+    willTransitionTo(transition, params, query, callback) {
       //Add loader
       AppActions.isLoggenIn()
       .catch(() => {
@@ -20,7 +20,7 @@ export default React.createClass({
     }
   },
 
-  render: function() {
+  render() {
     return (
       <div>
         <MenuComponent />

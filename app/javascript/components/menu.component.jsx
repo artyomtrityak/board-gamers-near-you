@@ -4,7 +4,7 @@ import { Link, State } from 'react-router';
 export default React.createClass({
   mixins: [State],
 
-  render: function() {
+  render() {
     return (
       <nav className='navbar-default navbar-static-side' role='navigation'>
         <ul className='nav'>

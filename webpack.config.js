@@ -11,7 +11,8 @@ var VENDOR_LIBS = [
     'eventemitter2',
     'classnames',
     'leaflet',
-    'parse'
+    'parse',
+    'react-pure'
 ];
 var embedFileSize = 65536;
 
