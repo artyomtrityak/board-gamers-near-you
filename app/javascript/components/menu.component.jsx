@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, State } from 'react-router';
 
 export default React.createClass({
+  displayName: 'MenuComponent',
   mixins: [State],
 
   render() {

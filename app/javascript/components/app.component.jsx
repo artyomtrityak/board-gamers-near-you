@@ -6,6 +6,8 @@ import MenuComponent from './menu.component';
 import MapComponent from './map/map.component';
 
 export default React.createClass({
+  displayName: 'AppComponent',
+
   statics: {
     willTransitionTo(transition, params, query, callback) {
       //Add loader

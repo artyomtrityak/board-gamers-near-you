@@ -3,6 +3,8 @@ import Immutable from 'immutable';
 
 import AppDispatcher from 'dispatchers/app.dispatcher';
 
+console.log(AppDispatcher);
+
 // Private data and functions
 var appState = Immutable.Map({loading: true});
 
@@ -28,17 +30,16 @@ var store = new AppStore();
 
 // Dispatcher
 store.dispatchToken = AppDispatcher.register((payload) => {
-  console.log(payload)
   var action = payload.action;
 
-  switch (payload.action) {
-    case 'LOADING:SHOW':
+  switch (action.type) {
+    case 'LOADING_SHOW':
       _showLoading();
       store.emitChange();
       break;
 
-    case 'FACEBOOK:LOADED':
-    case 'LOADING:HIDE':
+    case 'FACEBOOK_LOADED':
+    case 'LOADING_HIDE':
       console.log('loaded!')
       _hideLoading();
       store.emitChange();

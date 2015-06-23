@@ -8,6 +8,8 @@ import { RouteHandler } from 'react-router';
 
 
 export default React.createClass({
+  displayName: 'LandingComponent',
+
   render() {
     return (
       <div>

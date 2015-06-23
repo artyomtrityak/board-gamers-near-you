@@ -13,11 +13,11 @@ export default React.createClass({
   },
 
   componentDidMount() {
+    AppStore.on('change', this.handleChange);
+
     window.fbAsyncInit = this.initializeFb;
 
     this.loadFBSdk();
-
-    AppStore.on('change', this.handleChange);
   },
 
   handleChange() {
@@ -38,10 +38,8 @@ export default React.createClass({
   },
 
   render() {
-    console.log(this.state);
     return (
       <div id='wrapper'>
-        1213
         <div ref='loader'>
           <Loader loading={this.state.loading} />
         </div>
