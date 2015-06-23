@@ -1,9 +1,7 @@
 'use strict';
 
 import { Dispatcher } from 'flux';
-import Constants from 'constants/app.constants';
-
-var PayloadSources = Constants.PayloadSources;
+import { PayloadSources } from 'constants/app.constants';
 
 class AppDispatcher extends Dispatcher {
   handleViewAction(action) {
@@ -22,7 +20,5 @@ class AppDispatcher extends Dispatcher {
     this.dispatch(payload);
   }
 }
-
-
 
 export default new AppDispatcher();
