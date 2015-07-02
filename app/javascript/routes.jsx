@@ -7,8 +7,6 @@ import LandingComponent from './components/landing.component';
 import NotFoundComponent from './components/not-found.component';
 import LoginModalComponent from './components/login-modal.component';
 
-
-
 var routes = (
   <Route handler={RootComponent} name='root' path='/'>
     <Route handler={AppComponent} name='app'>
@@ -16,7 +14,7 @@ var routes = (
       <Route handler={NotFoundComponent} name='notifications' />
     </Route>
 
-    <Route handler={LandingComponent} name='landing' path="/">
+    <Route handler={LandingComponent} name='landing'>
       <Route handler={LoginModalComponent} name='login' />
     </Route>
     <NotFoundRoute handler={NotFoundComponent} />

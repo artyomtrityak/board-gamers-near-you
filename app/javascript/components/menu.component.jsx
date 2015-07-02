@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, State } from 'react-router';
 
+//import UserStore from 'stores/user.store';
+
 export default React.createClass({
   displayName: 'MenuComponent',
   mixins: [State],

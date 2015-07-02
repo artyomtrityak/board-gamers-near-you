@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteHandler } from 'react-router';
 
-//import AppActions from 'actions/app.actions';
+import AppActions from 'actions/app.actions';
 
 //import headerImg from './images/header_one.jpg';
 //import laptopImg from './images/laptop.png';
@@ -10,11 +10,17 @@ import { RouteHandler } from 'react-router';
 export default React.createClass({
   displayName: 'LandingComponent',
 
+  onLogin() {
+    AppActions.login();
+  },
+
+
   render() {
     return (
       <div>
         <div>
-          Welcome page
+          {/* hide button if logged in and show Go To App btn */}
+          Welcome page, <button onClick={this.onLogin}>Login</button>
         </div>
 
         <div id='modal-container'>

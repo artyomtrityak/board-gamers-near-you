@@ -1,37 +1,37 @@
 import Promise from 'bluebird';
-import { Parse } from 'parse';
 
-import Config from 'config';
 import AppDispatcher from 'dispatchers/app.dispatcher';
-
 import { ActionTypes } from 'constants/app.constants';
+import UserWebUtils from 'webutils/user.webutils';
 
 var AppActions = {
   initialize() {
-    Parse.initialize(
-      Config.get('parseAppId'),
-      Config.get('parseKey')
-    );
-
-    Parse.FacebookUtils.init({ // this line replaces FB.init({
-      appId: Config.get('facebookAppId'), // Facebook App ID
-      status: true,  // check Facebook Login status
-      cookie: true,  // enable cookies to allow Parse to access the session
-      xfbml: true,  // initialize Facebook social plugins on the page
-      version: 'v2.3' // point to the latest Facebook Graph API version
-    });
+    var auth = UserWebUtils.initialize();
 
     AppDispatcher.handleViewAction({
-      type: ActionTypes.FACEBOOK_LOADED
+      type: ActionTypes.APP_LOADED,
+      user: auth
     });
   },
 
-  isLoggenIn() {
-    var deferred = Promise.pending();
-    setTimeout(function(){
-        deferred.reject('not logged in');
-    }, 2000);
-    return deferred.promise;
+  login() {
+    AppDispatcher.handleViewAction({
+      type: ActionTypes.LOGIN_PROCESSING
+    });
+
+    UserWebUtils.loginOrSignup()
+    .then((user) => {
+      AppDispatcher.handleServerAction({
+        type: ActionTypes.LOGIN_DONE,
+        user: user
+      });
+    })
+    .catch((error) => {
+      AppDispatcher.handleServerAction({
+        type: ActionTypes.LOGIN_ERROR,
+        error: error
+      });
+    })
   }
 };
 

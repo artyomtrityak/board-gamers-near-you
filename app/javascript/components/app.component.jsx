@@ -1,7 +1,8 @@
 import React from 'react';
 import { RouteHandler } from 'react-router';
 
-import AppActions from 'actions/app.actions';
+import UserStore from 'stores/user.store';
+
 import MenuComponent from './menu.component';
 import MapComponent from './map/map.component';
 
@@ -10,15 +11,10 @@ export default React.createClass({
 
   statics: {
     willTransitionTo(transition, params, query, callback) {
-      //Add loader
-      AppActions.isLoggenIn()
-      .catch(() => {
+      if (UserStore.getState().get('user') === undefined) {
         transition.redirect('landing');
-        callback();
-      })
-      .finally(() => {
-        //Hide loader
-      });
+      }
+      callback();
     }
   },
 

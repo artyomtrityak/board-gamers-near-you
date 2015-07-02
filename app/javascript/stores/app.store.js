@@ -2,8 +2,7 @@ import EventEmitter from 'eventemitter2';
 import Immutable from 'immutable';
 
 import AppDispatcher from 'dispatchers/app.dispatcher';
-
-console.log(AppDispatcher);
+import { ActionTypes } from 'constants/app.constants';
 
 // Private data and functions
 var appState = Immutable.Map({loading: true});
@@ -32,16 +31,26 @@ var store = new AppStore();
 store.dispatchToken = AppDispatcher.register((payload) => {
   var action = payload.action;
 
+  console.log(action);
+
   switch (action.type) {
-    case 'LOADING_SHOW':
+
+    case ActionTypes.LOGIN_PROCESSING:
       _showLoading();
       store.emitChange();
       break;
 
-    case 'FACEBOOK_LOADED':
-    case 'LOADING_HIDE':
-      console.log('loaded!')
+    case ActionTypes.LOGIN_ERROR:
+      //TODO: show error notification
+      alert('Error!', action.error);
       _hideLoading();
+
+      store.emitChange();
+
+    case ActionTypes.APP_LOADED:
+    case ActionTypes.LOGIN_DONE:
+      _hideLoading();
+
       store.emitChange();
       break;
   }

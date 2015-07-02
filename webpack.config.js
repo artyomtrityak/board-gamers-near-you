@@ -11,7 +11,7 @@ var VENDOR_LIBS = [
     'eventemitter2',
     'classnames',
     'leaflet',
-    'parse',
+    'firebase',
     'react-pure',
     'spin.js'
 ];

@@ -26,7 +26,6 @@
     "no-underscore-dangle": [0],
 
     // vars
-    "no-undefined": 2,
     "no-unused-vars": 2,
     "no-use-before-define": 2,
 
