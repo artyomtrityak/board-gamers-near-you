@@ -11,6 +11,7 @@ export default React.createClass({
 
   statics: {
     willTransitionTo(transition, params, query, callback) {
+      //TODO: wait till FB will be loaded and Initialize done
       if (UserStore.getState().get('user') === undefined) {
         transition.redirect('landing');
       }

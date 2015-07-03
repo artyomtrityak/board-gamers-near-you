@@ -14,7 +14,7 @@ var routes = (
       <Route handler={NotFoundComponent} name='notifications' />
     </Route>
 
-    <Route handler={LandingComponent} name='landing'>
+    <Route handler={LandingComponent} name='landing' path='/'>
       <Route handler={LoginModalComponent} name='login' />
     </Route>
     <NotFoundRoute handler={NotFoundComponent} />

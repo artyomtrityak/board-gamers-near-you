@@ -6,6 +6,8 @@ var AppActions = {
   initialize() {
     var auth = UserWebUtils.initialize();
 
+    console.log(auth);
+
     AppDispatcher.handleViewAction({
       type: ActionTypes.APP_LOADED,
       user: auth
