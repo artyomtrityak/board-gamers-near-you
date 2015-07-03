@@ -1,5 +1,3 @@
-import Promise from 'bluebird';
-
 import AppDispatcher from 'dispatchers/app.dispatcher';
 import { ActionTypes } from 'constants/app.constants';
 import UserWebUtils from 'webutils/user.webutils';
@@ -31,7 +29,7 @@ var AppActions = {
         type: ActionTypes.LOGIN_ERROR,
         error: error
       });
-    })
+    });
   }
 };
 

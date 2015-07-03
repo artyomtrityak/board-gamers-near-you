@@ -17,6 +17,11 @@
     // errors
     "no-empty": [0],
 
+    'new-cap': 0,
+
+    //semicoin
+    semi: [2, "always"],
+
     // best practices
     "no-alert": [0],
 

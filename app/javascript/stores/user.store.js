@@ -34,7 +34,7 @@ store.dispatchToken = AppDispatcher.register((payload) => {
   switch (action.type) {
     case ActionTypes.APP_LOADED:
     case ActionTypes.LOGIN_DONE:
-      _login(action.user);  
+      _login(action.user);
       store.emitChange();
       break;
   }

@@ -35,7 +35,7 @@ module.exports = {
     module: {
         preLoaders: [
           {
-            test: /\.jsx$/,
+            test: /\.jsx$|\.js$/,
             loaders: ['eslint'],
             include: [new RegExp(path.join(__dirname, 'app'))],
             exclude: /node_modules/
